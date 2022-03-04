@@ -43,9 +43,29 @@
   background-color: #2c5672;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@media (max-width: 425px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    width: 150%;
+  }
+
+  .description {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    width: 150%;
+  }
+
+  .description {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    width: 150%;
   }
 }
