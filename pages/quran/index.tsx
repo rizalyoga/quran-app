@@ -47,22 +47,26 @@ const Blog = (props: BlogProps) => {
 
   return (
     <Layout pageTitle="Blog Page">
-      <h1 className={style["title-page"]}>LIST OF SURAH</h1>
-      <div className={style["search-form"]}>
-        <input type="search" onChange={changeValue} placeholder="Enter your keyword" />
-        {/* <p>search</p> */}
+      <div className={style.header}>
+        <h1 className={style["title-page"]}>LIST OF SURAH</h1>
+        <div className={style["search-form"]}>
+          <input type="search" onChange={changeValue} placeholder="Enter your keyword" />
+          {/* <p>search</p> */}
+        </div>
       </div>
-      {dataBlog
-        .filter((surah) => surah.nama.toLowerCase().includes(term.toLowerCase()))
-        .map((blog) => (
-          <div key={blog.nama} className={style.container} onClick={() => router.push(`/quran/${blog.nomor}`)}>
-            <h4 className={style["title-surah"]}>{blog.nama}</h4>
-            <h4 className={style["title-page"]}>
-              Surah ke: {blog.nomor} | Jumlah ayat : {blog.ayat}
-            </h4>
-            <p className={style.content}>{blog.keterangan}</p>
-          </div>
-        ))}
+      <div className={style.container}>
+        {dataBlog
+          .filter((surah) => surah.nama.toLowerCase().includes(term.toLowerCase()))
+          .map((blog) => (
+            <div key={blog.nama} className={style["card-content"]} onClick={() => router.push(`/quran/${blog.nomor}`)}>
+              <h4 className={style["title-surah"]}>{blog.nama}</h4>
+              <h4 className={style["sub-title-surah"]}>
+                Surah ke: {blog.nomor} | Jumlah ayat : {blog.ayat}
+              </h4>
+              <p className={style.content}>{blog.keterangan}</p>
+            </div>
+          ))}
+      </div>
     </Layout>
   );
 };
