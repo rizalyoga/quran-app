@@ -1,14 +1,17 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
-import Layout from "../component/layout/layout";
+// import Layout from "../component/layout/layout";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Navbar from "../component/navbar/navbar";
+import Footer from "../component/footer/footer";
 
 const Home: NextPage = () => {
   const router = useRouter();
 
   return (
-    <Layout pageTitle="Home Page">
+    <>
+      <Navbar />
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className={styles.title}>Welcome to Quran App !!!</h1>
@@ -23,7 +26,8 @@ const Home: NextPage = () => {
           </a>
         </main>
       </div>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 
