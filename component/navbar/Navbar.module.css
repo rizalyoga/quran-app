@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  display: flex;
+  background: #113a55;
+  justify-content: center;
+  top: 0;
+  position: fixed;
+}
+
+.rowbar {
+  max-width: 1200px;
+  margin: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.col-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-item {
+  margin-right: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.menu-item:last-child {
+  margin-right: 0px;
+}

@@ -1,0 +1,22 @@
+.container {
+  margin-top: 100px;
+}
+
+.ayat-container {
+  /* background-color: rgb(210, 232, 233); */
+  background-color: #dff0fd;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.ayat {
+  width: 100%;
+  font-size: 2rem;
+  padding: 20px;
+  text-align: end;
+}
+
+.arti {
+  font-size: 1.2rem;
+}

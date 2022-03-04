@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background: #113a55;
+  justify-content: center;
+}
+
+.made-text {
+  color: white;
+}
