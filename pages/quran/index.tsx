@@ -21,7 +21,7 @@ interface Id {
 }
 
 const Blog = (props: BlogProps) => {
-  const debounce = require("lodash.debounce");
+  // const debounce = require("lodash.debounce");
 
   const { dataBlog } = props;
 
@@ -32,11 +32,11 @@ const Blog = (props: BlogProps) => {
   const changeValue = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = await e.target.value;
     setTerm(newValue);
-    console.log(term);
+    // console.log(term);
   };
 
   useEffect(() => {
-    console.log(term);
+    // console.log(term);
   }, [term]);
 
   if (dataBlog.length === 0) {
@@ -50,7 +50,7 @@ const Blog = (props: BlogProps) => {
       <div className={style.header}>
         <h1 className={style["title-page"]}>LIST OF SURAH</h1>
         <div className={style["search-form"]}>
-          <input type="search" onChange={changeValue} placeholder="Enter your keyword" />
+          <input type="search" onChange={changeValue} placeholder="Enter Surah Name" />
           {/* <p>search</p> */}
         </div>
       </div>

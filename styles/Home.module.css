@@ -14,9 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-
-  /* border: solid 2px red; */
+  padding-top: 8%;
 }
 
 .title {
@@ -46,7 +44,25 @@
   background-color: #2c5672;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 885px) {
+  .container {
+    min-height: 95vh;
+  }
+
+  .main {
+    padding-top: 25%;
+  }
+}
+
+@media (max-width: 428px) {
+  .container {
+    min-height: 95vh;
+  }
+
+  .main {
+    padding-top: 50%;
+  }
+
   .title {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -56,6 +72,11 @@
   .description {
     font-size: 1.3rem;
     margin-top: 2rem;
+  }
+
+  .image {
+    width: 10rem !important;
+    height: 20rem !important;
   }
 }
 
