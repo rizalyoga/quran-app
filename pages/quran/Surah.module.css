@@ -3,7 +3,8 @@
 }
 
 .ayat-container {
-  background-color: #dff0fd;
+  /* background-color: #dff0fd; */
+  background-color: #f1e294;
   display: flex;
   align-items: center;
   justify-content: end;

@@ -40,11 +40,11 @@ const Surah = () => {
   return (
     <Layout pageTitle="Surah">
       <div className={style.container}>
-        {surah.map((surah: SurahProps, index) => (
+        {surah.map((surah: SurahProps) => (
           <div key={surah.nomor}>
             <div className={style["ayat-container"]}>
               <p className={style.ayat}>{surah.ar}</p>
-              <p>~{index + 1}~</p>
+              <p>~{surah.nomor}~</p>
             </div>
             <p className={style.arti}>{surah.id}</p>
           </div>
