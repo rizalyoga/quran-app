@@ -3,11 +3,11 @@
 }
 
 .ayat-container {
-  /* background-color: rgb(210, 232, 233); */
   background-color: #dff0fd;
   display: flex;
   align-items: center;
   justify-content: end;
+  flex-direction: column;
 }
 
 .ayat {
@@ -15,6 +15,7 @@
   font-size: 2rem;
   padding: 20px;
   text-align: end;
+  margin-bottom: -1rem;
 }
 
 .arti {
