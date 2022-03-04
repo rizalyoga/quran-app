@@ -29,6 +29,7 @@ const Surah = () => {
   }, [surah, fetchSurah]);
 
   if (surah.length === 0) {
+    console.log("PLEASE WAIT...");
     return (
       <Layout pageTitle="Surah">
         <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1>

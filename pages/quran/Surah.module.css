@@ -20,3 +20,9 @@
 .arti {
   font-size: 1.2rem;
 }
+
+@media (max-width: 430px) {
+  .arti {
+    padding: 8px;
+  }
+}
