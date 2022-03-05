@@ -58,7 +58,7 @@ const Blog = (props: BlogProps) => {
         {dataBlog
           .filter((surah) => surah.nama.toLowerCase().includes(term.toLowerCase()))
           .map((blog) => (
-            <div key={blog.nama} className={style["card-content"]} onClick={() => router.push(`/quran/${blog.nomor}`)}>
+            <div key={blog.nama} className={style["card-content"]} onClick={() => router.push(`/quran/${blog.nomor}?Surah=${blog.nama}`)}>
               <h4 className={style["title-surah"]}>{blog.nama}</h4>
               <h4 className={style["sub-title-surah"]}>
                 Surah ke: {blog.nomor} | Jumlah ayat : {blog.ayat}

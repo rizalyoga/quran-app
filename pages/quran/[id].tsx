@@ -13,6 +13,8 @@ const Surah = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  console.log(router);
+
   const [surah, setSurah] = useState([]);
 
   const fetchSurah = async () => {
