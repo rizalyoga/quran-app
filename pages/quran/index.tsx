@@ -68,6 +68,7 @@ const Blog = (props: SurahProps) => {
 
 export default Blog;
 
+/* -------------------------- GET SERVER SIDE PROPS ( SSR ) ------------------------- */
 // export async function getServerSideProps() {
 //   const res = await fetch(`https://api.npoint.io/99c279bb173a6e28359c/data`);
 //   const dataSurah = await res.json();
@@ -78,6 +79,7 @@ export default Blog;
 //   };
 // }
 
+/* -------------------------- GET STATIC PROPS ( SSG )------------------------- */
 export async function getStaticProps() {
   const res = await fetch(`https://api.npoint.io/99c279bb173a6e28359c/data`);
   const dataSurah = await res.json();

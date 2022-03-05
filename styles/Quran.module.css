@@ -44,7 +44,7 @@
 }
 
 .container {
-  margin-top: 20%;
+  margin-top: 18%;
 }
 
 .card-content {
@@ -53,6 +53,8 @@
   /* width: 50%; */
   cursor: pointer;
   padding: 8px;
+  margin-top: 10px;
+  background-color: #fff4bc;
 }
 
 .title-surah {
@@ -70,6 +72,12 @@
   padding: 6px;
 }
 
+@media (max-width: 885px) {
+  .container {
+    margin-top: 25%;
+  }
+}
+
 @media (max-width: 430px) {
   .search-form input {
     height: 34px;
@@ -77,12 +85,12 @@
   }
 
   .container {
-    margin-top: 40%;
+    margin-top: 50%;
   }
 }
 
 @media (max-width: 378px) {
   .container {
-    margin-top: 50%;
+    margin-top: 55%;
   }
 }
