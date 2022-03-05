@@ -17,18 +17,17 @@ const Surah = () => {
   const [surah, setSurah] = useState([]);
   const [ayat, setAyat] = useState("");
 
-  const fetchSurah = async () => {
-    await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
-      .then((response) => response.json())
-      .then((result) => {
-        setSurah(result);
-      });
-  };
-
   useEffect(() => {
+    const fetchSurah = async () => {
+      await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
+        .then((response) => response.json())
+        .then((result) => {
+          setSurah(result);
+        });
+    };
     fetchSurah();
     // console.log(surah);
-  }, [surah, fetchSurah]);
+  }, [surah, id]);
 
   if (surah.length === 0) {
     console.log("PLEASE WAIT...");
