@@ -58,7 +58,7 @@ const Blog = (props: SurahProps) => {
               <h4 className={style["sub-title-surah"]}>
                 Surah ke: {blog.nomor} | Jumlah ayat : {blog.ayat}
               </h4>
-              <p className={style.content}>{blog.keterangan}</p>
+              <p className={style.content} dangerouslySetInnerHTML={{ __html: blog.keterangan }}></p>
             </div>
           ))}
       </div>

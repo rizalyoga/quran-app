@@ -8,6 +8,7 @@ interface SurahProps {
   ar: string;
   id: string;
   nomor: string;
+  tr: string;
 }
 
 const Surah = () => {
@@ -65,6 +66,7 @@ const Surah = () => {
           <div key={surah.nomor} id={surah.nomor}>
             <div className={style["ayat-container"]}>
               <p className={style.ayat}>{surah.ar}</p>
+              <div className={style.latin} dangerouslySetInnerHTML={{ __html: surah.tr }}></div>
               <p>~{surah.nomor}~</p>
             </div>
             <p className={style.arti}>{surah.id}</p>

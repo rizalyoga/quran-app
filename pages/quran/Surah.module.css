@@ -51,6 +51,14 @@
   margin-bottom: -1rem;
 }
 
+.latin {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 20px;
+  text-align: end;
+  margin-bottom: -1rem;
+}
+
 .arti {
   font-size: 1.2rem;
 }
