@@ -17,8 +17,6 @@ const Surah = () => {
   const [surah, setSurah] = useState([]);
   const [ayat, setAyat] = useState("");
 
-  console.log(ayat);
-
   const fetchSurah = async () => {
     await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
       .then((response) => response.json())
@@ -42,8 +40,8 @@ const Surah = () => {
     );
   }
 
-  const onJump = () => {
-    const offset = 45;
+  const onJump = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (ayat) {
       const elmnt = document.getElementById(ayat);
       if (elmnt) {
@@ -52,16 +50,17 @@ const Surah = () => {
     }
   };
 
-  // useEffect(() => {}, []);
-
   return (
     <Layout pageTitle="Surah">
-      <div className={style["jump-container"]}>
+      {/* <div className={style["jump-container"]}> */}
+      <form onSubmit={(e) => onJump(e)} className={style["jump-container"]}>
         <input type="text" placeholder="Input number of ayat" onChange={(e) => setAyat(e.target.value)} />
-        <p className={style.btn} onClick={() => onJump()}>
+
+        <button type="submit" className={style.btn}>
           Jump
-        </p>
-      </div>
+        </button>
+      </form>
+      {/* </div> */}
       <div className={style.container}>
         {surah.map((surah: SurahProps) => (
           <div key={surah.nomor} id={surah.nomor}>
