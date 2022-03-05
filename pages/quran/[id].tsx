@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../component/layout/layout";
 import style from "./Surah.module.css";
+import Loading from "../../component/loading/loading";
 
 interface SurahProps {
   ar: string;
@@ -12,8 +13,6 @@ interface SurahProps {
 const Surah = () => {
   const router = useRouter();
   const { id } = router.query;
-
-  console.log(router);
 
   const [surah, setSurah] = useState([]);
 
@@ -27,14 +26,15 @@ const Surah = () => {
 
   useEffect(() => {
     fetchSurah();
-    console.log(surah);
+    // console.log(surah);
   }, [surah, fetchSurah]);
 
   if (surah.length === 0) {
     console.log("PLEASE WAIT...");
     return (
       <Layout pageTitle="Surah">
-        <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1>
+        {/* <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1> */}
+        <Loading />
       </Layout>
     );
   }

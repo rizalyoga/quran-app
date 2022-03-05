@@ -25,7 +25,7 @@ const Navbar = () => {
             </li> */}
             <li className={styles["menu-item"]}>
               <Link href="/quran">
-                <a>QURAN</a>
+                <a>SURAH</a>
               </Link>
             </li>
           </ul>
