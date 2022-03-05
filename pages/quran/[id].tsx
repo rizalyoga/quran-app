@@ -15,6 +15,9 @@ const Surah = () => {
   const { id } = router.query;
 
   const [surah, setSurah] = useState([]);
+  const [ayat, setAyat] = useState("");
+
+  console.log(ayat);
 
   const fetchSurah = async () => {
     await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
@@ -39,11 +42,29 @@ const Surah = () => {
     );
   }
 
+  const onJump = () => {
+    const offset = 45;
+    if (ayat) {
+      const elmnt = document.getElementById(ayat);
+      if (elmnt) {
+        elmnt.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    }
+  };
+
+  // useEffect(() => {}, []);
+
   return (
     <Layout pageTitle="Surah">
+      <div className={style["jump-container"]}>
+        <input type="text" placeholder="Input number of ayat" onChange={(e) => setAyat(e.target.value)} />
+        <p className={style.btn} onClick={() => onJump()}>
+          Jump
+        </p>
+      </div>
       <div className={style.container}>
         {surah.map((surah: SurahProps) => (
-          <div key={surah.nomor}>
+          <div key={surah.nomor} id={surah.nomor}>
             <div className={style["ayat-container"]}>
               <p className={style.ayat}>{surah.ar}</p>
               <p>~{surah.nomor}~</p>
