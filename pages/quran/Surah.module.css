@@ -59,6 +59,10 @@
   .jump-container {
     margin-top: 6%;
   }
+
+  .arti {
+    padding: 8px;
+  }
 }
 
 @media (max-width: 430px) {

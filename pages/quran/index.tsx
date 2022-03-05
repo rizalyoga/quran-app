@@ -11,19 +11,14 @@ interface Post {
   keterangan: string;
 }
 
-interface BlogProps {
-  dataBlog: Post[];
+interface SurahProps {
+  dataSurah: Post[];
 }
 
-interface Id {
-  id: string;
-  nomor: string;
-}
-
-const Blog = (props: BlogProps) => {
+const Blog = (props: SurahProps) => {
   // const debounce = require("lodash.debounce");
 
-  const { dataBlog } = props;
+  const { dataSurah } = props;
 
   const [term, setTerm] = useState("");
 
@@ -39,7 +34,7 @@ const Blog = (props: BlogProps) => {
     // console.log(term);
   }, [term]);
 
-  if (dataBlog.length === 0) {
+  if (dataSurah.length === 0) {
     <Layout pageTitle="Surah">
       <h1 style={{ textAlign: "center" }}>PLEASE WAIT...</h1>
     </Layout>;
@@ -55,7 +50,7 @@ const Blog = (props: BlogProps) => {
         </div>
       </div>
       <div className={style.container}>
-        {dataBlog
+        {dataSurah
           .filter((surah) => surah.nama.toLowerCase().includes(term.toLowerCase()))
           .map((blog) => (
             <div key={blog.nama} className={style["card-content"]} onClick={() => router.push(`/quran/${blog.nomor}?Surah=${blog.nama}`)}>
@@ -73,12 +68,22 @@ const Blog = (props: BlogProps) => {
 
 export default Blog;
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
+//   const res = await fetch(`https://api.npoint.io/99c279bb173a6e28359c/data`);
+//   const dataSurah = await res.json();
+//   return {
+//     props: {
+//       dataSurah: dataSurah,
+//     },
+//   };
+// }
+
+export async function getStaticProps() {
   const res = await fetch(`https://api.npoint.io/99c279bb173a6e28359c/data`);
-  const dataBlog = await res.json();
+  const dataSurah = await res.json();
   return {
     props: {
-      dataBlog: dataBlog,
+      dataSurah,
     },
   };
 }
