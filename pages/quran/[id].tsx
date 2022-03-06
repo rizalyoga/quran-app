@@ -17,17 +17,11 @@ const Surah = () => {
 
   const [surah, setSurah] = useState([]);
   const [ayat, setAyat] = useState("");
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (!surah) {
-        alert("Oops, Internal Server error ! Please refresh the page");
-        console.log("Oops, Internal Server error ! Please refresh the page");
-        console.log("data surah : ", surah);
-      }
-    }, 30000);
-
     const fetchSurah = async () => {
+      // setLoading(true);
       await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
         .then((response) => response.json())
         .then((result) => {
@@ -37,6 +31,7 @@ const Surah = () => {
           console.log("error :", err);
           console.log("Oops, Internal Server error ! Please refresh the page");
         });
+      // .finally(() => setLoading(false));
     };
     fetchSurah();
   }, [surah, id]);
