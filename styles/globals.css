@@ -17,3 +17,20 @@ a {
 ul {
   list-style: none;
 }
+
+#nprogress .bar {
+  background: #ffbb00 !important;
+  height: 6px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #ffbb00, 0 0 5px #ffbb00 !important;
+}
+
+swal2-popup {
+  border-radius: 0px !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border-radius: 0 !important;
+}

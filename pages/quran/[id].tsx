@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../component/layout/layout";
 import style from "./Surah.module.css";
-import Loading from "../../component/loading/loading";
+// import Loading from "../../component/loading/loading";
 
 interface SurahProps {
   ar: string;
@@ -12,41 +12,46 @@ interface SurahProps {
   Surah: string;
 }
 
-const Surah = () => {
+interface PropsSurah {
+  surahData: SurahProps[];
+}
+
+const Surah = (props: PropsSurah) => {
+  const { surahData } = props;
   const router = useRouter();
   const { Surah, id } = router.query;
-  console.log(typeof Surah);
-
-  const [surah, setSurah] = useState([]);
   const [ayat, setAyat] = useState("");
+
+  /* ---------------------- CSR ( CLIENT SIDE RENDERIGN ) --------------------- */
+  // const [surah, setSurah] = useState([]);
   // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchSurah = async () => {
-      // setLoading(true);
-      await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
-        .then((response) => response.json())
-        .then((result) => {
-          setSurah(result);
-        })
-        .catch((err) => {
-          console.log("error :", err);
-          console.log("Oops, Internal Server error ! Please refresh the page");
-        });
-      // .finally(() => setLoading(false));
-    };
-    fetchSurah();
-  }, [surah, id]);
+  // useEffect(() => {
+  //   const fetchSurah = async () => {
+  //     // setLoading(true);
+  //     await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`)
+  //       .then((response) => response.json())
+  //       .then((result) => {
+  //         setSurah(result);
+  //       })
+  //       .catch((err) => {
+  //         console.log("error :", err);
+  //         console.log("Oops, Internal Server error ! Please refresh the page");
+  //       });
+  //     // .finally(() => setLoading(false));
+  //   };
+  //   fetchSurah();
+  // }, [surah, id]);
 
-  if (surah.length === 0) {
-    console.log("PLEASE WAIT...");
-    return (
-      <Layout pageTitle="">
-        {/* <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1> */}
-        <Loading />
-      </Layout>
-    );
-  }
+  // if (surah.length === 0) {
+  //   console.log("PLEASE WAIT...");
+  //   return (
+  //     <Layout pageTitle="">
+  //       {/* <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1> */}
+  //       <Loading />
+  //     </Layout>
+  //   );
+  // }
 
   const onJump = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,7 +65,6 @@ const Surah = () => {
 
   return (
     <Layout pageTitle={Surah as string}>
-      {/* <div className={style["jump-container"]}> */}
       <form onSubmit={(e) => onJump(e)} className={style["jump-container"]}>
         <input type="text" placeholder="Input number of ayat" onChange={(e) => setAyat(e.target.value)} />
 
@@ -68,21 +72,44 @@ const Surah = () => {
           Jump
         </button>
       </form>
-      {/* </div> */}
+
       <div className={style.container}>
-        {surah.map((surah: SurahProps) => (
-          <div key={surah.nomor} id={surah.nomor}>
-            <div className={style["ayat-container"]}>
-              <p className={style.ayat}>{surah.ar}</p>
-              <div className={style.latin} dangerouslySetInnerHTML={{ __html: surah.tr }}></div>
-              <p>~{surah.nomor}~</p>
+        {!surahData ? (
+          <div>Noting data</div>
+        ) : (
+          surahData.map((surah: SurahProps) => (
+            <div key={surah.nomor} id={surah.nomor}>
+              <div className={style["ayat-container"]}>
+                <p className={style.ayat}>{surah.ar}</p>
+                <div className={style.latin} dangerouslySetInnerHTML={{ __html: surah.tr }}></div>
+                <p>~{surah.nomor}~</p>
+              </div>
+              <p className={style.arti}>{surah.id}</p>
             </div>
-            <p className={style.arti}>{surah.id}</p>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </Layout>
   );
 };
 
 export default Surah;
+
+/* -------------------------- GET SERVER SIDE PROPS ( SSR ) ------------------------- */
+interface getStaticProps {
+  query: {
+    id: string;
+  };
+}
+
+export async function getServerSideProps(context: getStaticProps) {
+  const { id } = context.query;
+  const res = await fetch(`https://api.npoint.io/99c279bb173a6e28359c/surat/${id}`);
+  const surahData = await res.json();
+
+  return {
+    props: {
+      surahData: surahData,
+    },
+  };
+}

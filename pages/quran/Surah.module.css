@@ -39,7 +39,7 @@
   background-color: #f1e294;
   display: flex;
   align-items: center;
-  justify-content: end;
+  /* justify-content: end; */
   flex-direction: column;
 }
 
