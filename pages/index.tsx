@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Quran APP</title>
+        <title>QUR&apos;AN APP</title>
         <link rel="shortcut icon" href="/qur'an-logo.png" type="image/x-icon" />
       </Head>
       <Navbar />

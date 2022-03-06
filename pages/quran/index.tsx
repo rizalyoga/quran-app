@@ -41,7 +41,7 @@ const Blog = (props: SurahProps) => {
   }
 
   return (
-    <Layout pageTitle="Blog Page">
+    <Layout pageTitle="List Surah">
       <div className={style.header}>
         <h1 className={style["title-page"]}>LIST OF SURAH</h1>
         <div className={style["search-form"]}>

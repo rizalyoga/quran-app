@@ -14,7 +14,7 @@ const Layout = (props: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>QURAN APP | {pageTitle}</title>
+        <title>QUR&apos;AN APP | {pageTitle}</title>
         <link rel="icon" href="/qur'an-logo.png" />
       </Head>
       <Navbar />

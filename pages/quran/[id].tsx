@@ -9,11 +9,13 @@ interface SurahProps {
   id: string;
   nomor: string;
   tr: string;
+  Surah: string;
 }
 
 const Surah = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { Surah, id } = router.query;
+  console.log(typeof Surah);
 
   const [surah, setSurah] = useState([]);
   const [ayat, setAyat] = useState("");
@@ -39,7 +41,7 @@ const Surah = () => {
   if (surah.length === 0) {
     console.log("PLEASE WAIT...");
     return (
-      <Layout pageTitle="Surah">
+      <Layout pageTitle="">
         {/* <h1 style={{ textAlign: "center", marginTop: "50vh" }}>PLEASE WAIT...</h1> */}
         <Loading />
       </Layout>
@@ -57,7 +59,7 @@ const Surah = () => {
   };
 
   return (
-    <Layout pageTitle="Surah">
+    <Layout pageTitle={Surah as string}>
       {/* <div className={style["jump-container"]}> */}
       <form onSubmit={(e) => onJump(e)} className={style["jump-container"]}>
         <input type="text" placeholder="Input number of ayat" onChange={(e) => setAyat(e.target.value)} />
