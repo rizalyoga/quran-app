@@ -1,37 +1,65 @@
 import styles from "./Navbar.module.css";
+import style from "./Sidebar.module.css";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
+import { listMenu } from "./data";
+import { TiThMenu } from "react-icons/ti";
+import { MdClose } from "react-icons/md";
+import { useState } from "react";
+// import Sidebar from "./sidebar";
 
 const Navbar = () => {
   const router = useRouter();
 
+  const [show, setShow] = useState<boolean>(false);
+
+  const handleShow = () => {
+    setShow(!show);
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.rowbar}>
-        <div className={styles.logo} onClick={() => router.push("/")}>
-          QURAN APP
-        </div>
-        <div className={styles["row-menu"]}>
-          <ul className={styles["col-menu"]}>
-            <li className={styles["menu-item"]}>
-              <Link href="/">
-                <a>HOME</a>
-              </Link>
-            </li>
-            {/* <li className={styles["menu-item"]}>
-              <Link href="/users">
-                <a>USER</a>
-              </Link>
-            </li> */}
-            <li className={styles["menu-item"]}>
-              <Link href="/quran">
-                <a>SURAH</a>
-              </Link>
-            </li>
+    <>
+      <div className={show ? `${style.container} ${style.active}` : style.container}>
+        <div className={style["col-menu"]}>
+          <ul>
+            {listMenu.map((listMenu, index) => (
+              <li key={index} className={style["menu-item"]}>
+                <Link href={listMenu.path}>
+                  <a>
+                    <span>{<listMenu.icon />}</span>
+                    {listMenu.title}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
-    </div>
+
+      {/* <div className={show ? `${styles.show} ${styles.active}` : styles.show}> */}
+
+      {/* </div> */}
+
+      <div className={styles.container}>
+        <div className={styles.rowbar}>
+          <div className={styles.logo} onClick={() => router.push("/")}>
+            QURAN APP
+          </div>
+          <div className={styles["row-menu"]}>
+            <ul className={styles["col-menu"]}>
+              {listMenu.map((listMenu, index) => (
+                <li key={index} className={styles["menu-item"]}>
+                  <Link href={listMenu.path}>
+                    <a>{listMenu.title}</a>
+                  </Link>
+                </li>
+              ))}
+              {show ? <MdClose className={styles["menu-icon"]} onClick={handleShow} /> : <TiThMenu className={styles["menu-icon"]} onClick={handleShow} />}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
