@@ -6,7 +6,7 @@ import { listMenu } from "./data";
 import { TiThMenu } from "react-icons/ti";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
-// import Sidebar from "./sidebar";
+import Sidebar from "./sidebar";
 
 const Navbar = () => {
   const router = useRouter();
@@ -19,27 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={show ? `${style.container} ${style.active}` : style.container}>
-        <div className={style["col-menu"]}>
-          <ul>
-            {listMenu.map((listMenu, index) => (
-              <li key={index} className={style["menu-item"]}>
-                <Link href={listMenu.path}>
-                  <a>
-                    <span>{<listMenu.icon />}</span>
-                    {listMenu.title}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* <div className={show ? `${styles.show} ${styles.active}` : styles.show}> */}
-
-      {/* </div> */}
-
+      <Sidebar show={show} />
       <div className={styles.container}>
         <div className={styles.rowbar}>
           <div className={styles.logo} onClick={() => router.push("/")}>
