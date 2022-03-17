@@ -2,17 +2,33 @@
   min-height: 95vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 .title {
   text-align: center;
   color: #113a55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -8rem;
+}
+
+.reset-btn {
+  background-color: #113a55;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 1.3rem;
+}
+
+.reset-btn:active {
+  background-color: #ffcf36;
 }
 
 .counter {
   width: 100%;
-  padding: 5rem 0;
-  display: flex;
+  padding: 1rem 0;
+  display: 2lex;
   justify-content: center;
   align-items: center;
 }
@@ -24,13 +40,15 @@
 }
 
 .title button {
+  position: absolute;
   background: none;
   border: none;
   outline: none;
+  margin-top: 30rem;
 }
 
 .title button::after {
-  content: " ";
+  content: "";
   width: 100px;
   height: 100px;
   background: #ffcf36;
@@ -41,7 +59,7 @@
 }
 
 .title button:active::after {
-  content: " ";
+  content: "";
   width: 100px;
   height: 100px;
   background: #ffcf36;
@@ -49,10 +67,6 @@
   margin: auto;
   margin-top: -103px;
   border-radius: 50%;
-}
-
-.title button:active {
-  margin-top: 5px;
 }
 
 .image {
@@ -66,5 +80,9 @@
 @media (max-width: 320px) {
   .counter {
     padding: 2rem 0;
+  }
+
+  .title {
+    margin-top: -5rem;
   }
 }

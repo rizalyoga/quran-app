@@ -31,13 +31,19 @@
 }
 
 .description {
+  width: 35rem;
   line-height: 1.5;
   font-size: 1.5rem;
   background-color: #113a55;
   border-radius: 5px;
   padding: 10px 20px;
+  margin: 5px 0;
   color: white;
   cursor: pointer;
+}
+
+.description:active {
+  background-color: #113a55;
 }
 
 .description:hover {
@@ -51,6 +57,12 @@
 
   .main {
     padding-top: 25%;
+  }
+}
+
+@media (max-width: 565px) {
+  .description {
+    width: 25rem;
   }
 }
 
@@ -70,8 +82,8 @@
   }
 
   .description {
-    font-size: 1.3rem;
-    margin-top: 2rem;
+    font-size: 1rem;
+    width: 20rem;
   }
 
   .image {
@@ -80,7 +92,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 340px) {
   .title {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -88,8 +100,6 @@
   }
 
   .description {
-    font-size: 1.3rem;
-    margin-top: 2rem;
     width: 150%;
   }
 }

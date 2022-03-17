@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Navbar />
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className={styles.title}>Welcome to Quran App !!!</h1>
+          <h1 className={styles.title}>Welcome to Quran App</h1>
           <Image className={styles.image} src="/qur'an-logo.png" width={500} height={500} alt="logo Quran" />
           <a
             className={styles.description}
@@ -27,7 +27,15 @@ const Home: NextPage = () => {
               router.push("/quran");
             }}
           >
-            Get started to reading Quran
+            Al-Quran
+          </a>
+          <a
+            className={styles.description}
+            onClick={() => {
+              router.push("/dzikir");
+            }}
+          >
+            Dzikir
           </a>
         </main>
       </div>
