@@ -53,7 +53,7 @@ const Layout = (props: LayoutProps) => {
         <title>QUR&apos;AN APP | {pageTitle}</title>
         <link rel="icon" href="/qur'an-logo.png" />
         {/* /* ------------------------------ nprogress CDN -----------------------------  */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
       </Head>
       <Navbar />
       <div className={style.container}>
