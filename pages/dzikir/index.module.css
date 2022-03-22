@@ -45,6 +45,7 @@
   border: none;
   outline: none;
   margin-top: 30rem;
+  margin-bottom: 10px;
 }
 
 .title button::after {
