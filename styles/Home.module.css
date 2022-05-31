@@ -1,8 +1,7 @@
 .container {
   padding: 0 5rem;
   margin: auto;
-  /* max-width: 1200px; */
-  min-height: 88vh;
+  min-height: 100vh;
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("../public/pattern-background.png");
   background-size: cover;
 }
