@@ -34,7 +34,15 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              {show ? <MdClose className={styles["menu-icon"]} onClick={handleShow} /> : <TiThMenu className={styles["menu-icon"]} onClick={handleShow} />}
+              {show ? 
+                <MdClose 
+                  className={styles["menu-icon"]} 
+                  onClick={handleShow} /> 
+                  : 
+                  <TiThMenu 
+                  className={styles["menu-icon"]} 
+                  onClick={handleShow} 
+              />}
             </ul>
           </div>
         </div>

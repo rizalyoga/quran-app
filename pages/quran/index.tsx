@@ -20,19 +20,15 @@ const Blog = (props: SurahProps) => {
 
   const { dataSurah } = props;
 
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState<string>("");
 
   const router = useRouter();
 
   const changeValue = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = await e.target.value;
-    setTerm(newValue);
-    // console.log(term);
-  };
 
-  useEffect(() => {
-    // console.log(term);
-  }, [term]);
+    setTerm(newValue);
+  };
 
   if (dataSurah.length === 0) {
     <Layout pageTitle="Surah">
@@ -53,12 +49,21 @@ const Blog = (props: SurahProps) => {
         {dataSurah
           .filter((surah) => surah.nama.toLowerCase().includes(term.toLowerCase()))
           .map((blog) => (
-            <div key={blog.nama} className={style["card-content"]} onClick={() => router.push(`/quran/${blog.nomor}?Surah=${blog.nama}`)}>
+              <div 
+                key={blog.nama} 
+                className={style["card-content"]} 
+                onClick={
+                  () => router.push(`/quran/${blog.nomor}?Surah=${blog.nama}`)
+                }>
+
               <h4 className={style["title-surah"]}>{blog.nama}</h4>
               <h4 className={style["sub-title-surah"]}>
                 Surah ke: {blog.nomor} | Jumlah ayat : {blog.ayat}
               </h4>
-              <p className={style.content} dangerouslySetInnerHTML={{ __html: blog.keterangan }}></p>
+              <p 
+                className={style.content} 
+                dangerouslySetInnerHTML={{ __html: blog.keterangan }}
+              ></p>
             </div>
           ))}
       </div>

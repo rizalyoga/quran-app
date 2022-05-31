@@ -20,7 +20,7 @@ const Surah = (props: PropsSurah) => {
   const { surahData } = props;
   const router = useRouter();
   const { Surah, id } = router.query;
-  const [ayat, setAyat] = useState("");
+  const [ayat, setAyat] = useState<string>("");
 
   /* ---------------------- CSR ( CLIENT SIDE RENDERIGN ) --------------------- */
   // const [surah, setSurah] = useState([]);
@@ -52,6 +52,8 @@ const Surah = (props: PropsSurah) => {
   //     </Layout>
   //   );
   // }
+
+  /* ---------------------- SSR ( SERVER SIDE RENDERIGN ) --------------------- */
 
   const onJump = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

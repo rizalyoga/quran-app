@@ -6,8 +6,8 @@ import Image from "next/image";
 import Swal from "sweetalert2";
 
 const Dzikir = () => {
-  let [total, setTotal] = useState(0);
-  let [click, setClick] = useState(false);
+  let [total, setTotal] = useState<number>(0);
+  let [click, setClick] = useState<boolean>(false);
 
   const resetCounter = () => {
     Swal.fire({
@@ -23,7 +23,7 @@ const Dzikir = () => {
     });
   };
 
-  const counter = () => {
+  const counter = (): void => {
     setTotal((total += 1));
   };
 
@@ -35,7 +35,12 @@ const Dzikir = () => {
           <a className={style["reset-btn"]} href="#" onClick={resetCounter}>
             reset counter
           </a>
-          <div className={style.counter}>{total < 10 ? <p>0{total}</p> : <p>{total}</p>}</div>
+          <div 
+            className={style.counter}>
+              {total < 10 ? <p>0{total}</p> 
+              :
+               <p>{total}</p>}
+          </div>
           <button onClick={counter}>
             <Image className={style.image} src="/plusButton.png" width={100} height={100} alt="logo Quran" />
           </button>
